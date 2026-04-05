@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#00040A] text-gray-300">
+    <footer className="bg-white text-slate-700 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */ }
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-[#535bf2]">About HireHub</h3>
-            <p className="text-gray-400">
+            <h3 className="text-lg font-semibold mb-4 text-slate-900">About HireHub</h3>
+            <p className="text-slate-600">
               Connecting talented professionals with innovative companies worldwide.
             </p>
           </div>
@@ -18,12 +18,12 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4 text-[#535bf2]">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/jobs" className="hover:text-[#535bf2] transition">
+                <Link to="/jobs" className="text-slate-600 hover:text-primary transition">
                   Find Jobs
                 </Link>
               </li>
               <li>
-                <Link to="/companies" className="hover:text-[#535bf2] transition">
+                <Link to="/companies" className="text-slate-600 hover:text-primary transition">
                   Companies
                 </Link>
               </li>
@@ -49,12 +49,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/help" className="hover:text-[#535bf2] transition">
+                <Link to="/help" className="text-slate-600 hover:text-primary transition">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-[#535bf2] transition">
+                <Link to="/careers" className="text-slate-600 hover:text-primary transition">
                   Careers
                 </Link>
               </li>
@@ -80,8 +80,8 @@ export default function Footer() {
           </div>
         </div>
         {/* Footer Bottom */ }
-        <div className="mt-8 pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400">
+        <div className="mt-8 pt-8 border-t border-slate-200">
+          <p className="text-center text-slate-500">
             © { new Date().getFullYear() } HireHub. All rights reserved.
           </p>
         </div>

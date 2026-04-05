@@ -48,15 +48,15 @@ const Job = ({ job }) => {
             animate={ { opacity: 1, y: 0 } }
             transition={ { type: 'spring', stiffness: 300, damping: 20, duration: 0.9 } }
         >
-            <Card key={ job.id } className="bg-gray-900 border-gray-800 w-full p-6 rounded-lg shadow-md">
+            <Card key={ job.id } className="bg-white border-slate-200 w-full p-6 rounded-lg shadow-md">
                 <div className="flex items-start justify-between">
                     <div className="flex items-center">
                         <Avatar>
                             <AvatarImage src={ job?.company?.logo } alt={ job?.company?.name } />
                         </Avatar>
                         <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-white">{ job?.title }</h3>
-                            <p className="text-gray-400">{ job?.company?.name }</p>
+                            <h3 className="text-lg font-semibold text-foreground">{ job?.title }</h3>
+                            <p className="text-slate-600">{ job?.company?.name }</p>
                         </div>
                     </div>
                     <Button
@@ -70,12 +70,11 @@ const Job = ({ job }) => {
                 </div>
 
                 <div className="mt-4">
-                    <div className="flex items-center text-gray-400 mb-2">
-                        <Badge variant="secondary" className="mr-2">{ job?.position } Positions</Badge>
-                        <span className="text-sm">{ job?.location }</span>
-                    </div>
-                    <p className="text-gray-300 font-medium"> ₹ { job?.salary } LPA</p>
-
+                        <div className="flex items-center text-slate-600 mb-2">
+                            <Badge variant="secondary" className="mr-2">{ job?.position } Positions</Badge>
+                            <span className="text-sm">{ job?.location }</span>
+                        </div>
+                        <p className="text-slate-900 font-medium"> ₹ { job?.salary } LPA</p>
                     <div className="mt-4 flex items-center justify-between">
                         {
                             savedJobs?.some(savedJob => savedJob._id.toString() === job?._id.toString()) ?
@@ -88,7 +87,7 @@ const Job = ({ job }) => {
                                 </Button>
                         }
 
-                        <span className="text-xs sm:text-sm text-gray-400">
+                        <span className="text-xs sm:text-sm text-slate-500">
                             { daysAgoFunction(job?.createdAt) === 0 ? 'Today' : `${daysAgoFunction(job?.createdAt)} days ago` }
                         </span>
 

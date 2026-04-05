@@ -12,7 +12,7 @@ const LatestJobCards = ({ job }) => {
     return (
         <motion.div
             onClick={ () => navigate(`/description/${job._id}`) }
-            className="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
+            className="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-lg transition-all duration-300 cursor-pointer"
             initial={ { opacity: 0, y: 30 } } // Initial state for motion
             animate={ { opacity: 1, y: 0 } } // Animate to final state
             whileHover={ { scale: 1.05, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)" } } // Hover effect
@@ -28,10 +28,10 @@ const LatestJobCards = ({ job }) => {
                             className="w-12 h-12 rounded-full"
                         />
                         <div className="ml-4">
-                            <h3 className="text-lg font-semibold text-white">
+                            <h3 className="text-lg font-semibold text-foreground">
                                 { job?.title || 'Job Title' }
                             </h3>
-                            <p className="text-gray-400">{ job?.company?.name || 'Company Name' }</p>
+                            <p className="text-slate-600">{ job?.company?.name || 'Company Name' }</p>
                         </div>
                     </div>
                     <Button variant="ghost" size="icon">
@@ -41,17 +41,16 @@ const LatestJobCards = ({ job }) => {
 
                 {/* Job Details */ }
                 <div className="mt-4">
-                    <div className="flex items-center text-gray-400 mb-2">
-                        <Badge variant="secondary" className="mr-2">
-                            { job?.jobType || 'Job Type' }
-                        </Badge>
-                        <span className="text-sm">{ job?.location || 'Location' }</span>
-                    </div>
-                    <p className="text-gray-300 font-medium">{ job?.salary ? `${job.salary} LPA` : 'Not disclosed' }</p>
-
+                        <div className="flex items-center text-slate-600 mb-2">
+                            <Badge variant="secondary" className="mr-2">
+                                { job?.jobType || 'Job Type' }
+                            </Badge>
+                            <span className="text-sm">{ job?.location || 'Location' }</span>
+                        </div>
+                        <p className="text-slate-900 font-medium">{ job?.salary ? `${job.salary} LPA` : 'Not disclosed' }</p>
                     {/* Footer with Date and Details Button */ }
                     <div className="mt-4 flex items-center justify-between">
-                        <span className="text-sm text-gray-400">{ job?.position } Positions</span>
+                        <span className="text-sm text-slate-500">{ job?.position } Positions</span>
                         <Link to={ `/description/${job._id}` }>
                             <Button variant="ghost" size="sm" className='text-blue-500'>
                                 Details

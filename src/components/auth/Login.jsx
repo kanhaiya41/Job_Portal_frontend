@@ -60,20 +60,20 @@ const Login = () => {
         <>
             <Navbar />
             <motion.div
-                className="flex justify-center items-center min-h-screen pt-16 bg-gradient-to-r from-[#00040A] to-[#001636]"
+                className="flex justify-center items-center min-h-screen pt-16 bg-gradient-to-r from-slate-100 via-white to-slate-100"
                 initial={ { opacity: 0 } }
                 animate={ { opacity: 1 } }
                 exit={ { opacity: 0 } }
                 transition={ { duration: 0.5 } }
             >
                 <motion.div
-                    className="w-full max-w-md p-8 bg-gray-900 border-gray-700 shadow-lg rounded-lg border border-gray-600"
+                    className="w-full max-w-md p-8 bg-white border border-slate-200 shadow-lg rounded-lg"
                     initial={ { y: 50 } }
                     animate={ { y: 0 } }
                     transition={ { type: 'spring', stiffness: 100 } }
                 >
                     <motion.h1
-                        className="font-bold text-3xl mb-6 text-white text-center"
+                        className="font-bold text-3xl mb-6 text-slate-900 text-center"
                         initial={ { opacity: 0 } }
                         animate={ { opacity: 1 } }
                         transition={ { delay: 0.3 } }
@@ -88,14 +88,14 @@ const Login = () => {
                             animate={ { x: 0, opacity: 1 } }
                             transition={ { delay: 0.4 } }
                         >
-                            <Label htmlFor="email" className="block text-white text-lg">
+                            <Label htmlFor="email" className="block text-slate-900 text-lg">
                                 Email Address <span className="text-red-400">*</span>
                             </Label>
                             <Input
                                 id="email"
                                 placeholder="john.doe@gmail.com"
                                 type="email"
-                                className="mt-1 p-3 border bg-transparent border-gray-500 rounded-md outline-none focus:border-blue-500 transition-all w-full text-white placeholder-gray-400"
+                                className="mt-1 p-3 border bg-slate-50 border-slate-300 rounded-md outline-none focus:border-blue-500 transition-all w-full text-slate-900 placeholder:text-slate-400"
                                 value={ input.email }
                                 name="email"
                                 onChange={ changeEventHandler }
@@ -107,14 +107,14 @@ const Login = () => {
                             animate={ { x: 0, opacity: 1 } }
                             transition={ { delay: 0.5 } }
                         >
-                            <Label htmlFor="password" className="block text-white text-lg">
+                            <Label htmlFor="password" className="block text-slate-900 text-lg">
                                 Password <span className="text-red-400">*</span>
                             </Label>
                             <Input
                                 id="password"
                                 placeholder="********"
                                 type="password"
-                                className="mt-1 p-3 border bg-transparent border-gray-500 rounded-md outline-none focus:border-blue-500 transition-all w-full text-white placeholder-gray-400"
+                                className="mt-1 p-3 border bg-slate-50 border-slate-300 rounded-md outline-none focus:border-blue-500 transition-all w-full text-slate-900 placeholder:text-slate-400"
                                 value={ input.password }
                                 name="password"
                                 onChange={ changeEventHandler }
@@ -127,7 +127,7 @@ const Login = () => {
                             animate={ { x: 0, opacity: 1 } }
                             transition={ { delay: 0.6 } }
                         >
-                            <Label className="block text-white mb-2 text-lg">
+                            <Label className="block text-slate-900 mb-2 text-lg">
                                 I am a: <span className="text-red-400">*</span>
                             </Label>
                             <RadioGroup
@@ -145,7 +145,7 @@ const Login = () => {
                                         checked={ input.role === 'student' }
                                         onChange={ changeEventHandler }
                                     />
-                                    <Label htmlFor="student" className="text-white cursor-pointer">
+                                    <Label htmlFor="student" className="text-slate-900 cursor-pointer">
                                         JobSeeker
                                     </Label>
                                 </div>
@@ -159,7 +159,7 @@ const Login = () => {
                                         checked={ input.role === 'recruiter' }
                                         onChange={ changeEventHandler }
                                     />
-                                    <Label htmlFor="recruiter" className="text-white cursor-pointer">
+                                    <Label htmlFor="recruiter" className="text-slate-900 cursor-pointer">
                                         Recruiter
                                     </Label>
                                 </div>
@@ -180,9 +180,9 @@ const Login = () => {
                             </Button>
                         ) }
 
-                        <p className="mt-4 text-center text-white">
+                        <p className="mt-4 text-center text-slate-600">
                             Don't have an account?
-                            <Link to="/signup" className="text-blue-400 hover:text-blue-300 mx-1 transition-colors">
+                            <Link to="/signup" className="text-blue-500 hover:text-blue-600 mx-1 transition-colors">
                                 Sign Up
                             </Link>
                         </p>

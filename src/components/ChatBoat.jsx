@@ -133,23 +133,23 @@ const ChatBot = () => {
     return (
         <div className="fixed bottom-4 right-4 z-50">
             { chatBotOpen ? (
-                <Card className="w-72 max-w-xs p-3 flex flex-col space-y-3 shadow-lg bg-gradient-to-br from-[#00040A] to-[#001636] border border-blue-600 rounded-lg">
+                <Card className="w-72 max-w-xs p-3 flex flex-col space-y-3 shadow-lg bg-white border border-slate-200 rounded-lg">
                     <div className="flex justify-between items-center">
                         <div className="flex items-center space-x-2">
-                            <h2 className="font-bold text-sm text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-                                Hire Hub AI
+                            <h2 className="font-bold text-sm text-slate-900">
+                                Hire Hub Chat
                             </h2>
                             <FaCircle className="text-green-500 text-xs" />
                         </div>
                         <Button
                             variant="ghost"
                             onClick={ () => setChatBotOpen(false) }
-                            className="text-blue-500 hover:text-white hover:bg-gray-500 p-1 h-8 w-8"
+                            className="text-slate-600 hover:text-slate-900 hover:bg-slate-100 p-1 h-8 w-8"
                         >
                             <X size={ 16 } />
                         </Button>
                     </div>
-                    <div className="flex-1 overflow-y-auto space-y-2 bg-gradient-to-br from-gray-800 to-gray-900 rounded-md p-2 max-h-56">
+                    <div className="flex-1 overflow-y-auto space-y-2 bg-slate-50 rounded-md p-2 max-h-56">
                         { messages.map((message, index) => (
                             <div
                                 key={ index }
@@ -158,7 +158,7 @@ const ChatBot = () => {
                                 <div
                                     className={ `p-2 rounded-lg max-w-full text-sm ${message.sender === "user"
                                         ? "bg-blue-500 text-white"
-                                        : "bg-gray-700 text-white"
+                                        : "bg-slate-100 text-slate-900"
                                         }` }
                                 >
                                     { message.text }
@@ -195,7 +195,7 @@ const ChatBot = () => {
                                     handleSendMessage(newMessage);
                                 }
                             } }
-                            className="flex-1 border-blue-300 bg-transparent text-white text-sm placeholder:text-gray-400 focus:ring-2 focus:ring-blue-600 h-8"
+                            className="flex-1 border-slate-300 bg-slate-50 text-slate-900 text-sm placeholder:text-slate-400 focus:ring-2 focus:ring-blue-600 h-8"
                         />
                         <Button
                             onClick={ () => handleSendMessage(newMessage) }

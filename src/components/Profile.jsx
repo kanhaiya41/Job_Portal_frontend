@@ -27,21 +27,21 @@ const Profile = () => {
                 initial={ { opacity: 0 } }
                 animate={ { opacity: 1 } }
                 transition={ { duration: 0.5 } }
-                className="pb-4 bg-gradient-to-br from-[#00040A] to-[#001636] text-gray-300"
+                className="pb-4 bg-background text-foreground"
             >
                 <Navbar />
                 {/* Main container with padding adjustment for navbar */ }
                 <div className="pt-20 max-w-4xl mx-auto px-6">
                     {/* Profile Information */ }
-                    <div className="bg-gray-800 border border-gray-700 rounded-2xl shadow-md p-6 my-6">
+                    <div className="bg-white border border-slate-200 rounded-2xl shadow-md p-6 my-6">
                         <div className="flex justify-between items-center">
                             <div className="flex items-center gap-4">
                                 <Avatar className="h-24 w-24">
                                     <AvatarImage src={ user?.profile?.profilePhoto ? user?.profile?.profilePhoto : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8T0hZUoX8kuRi3EZpZbUDtZ_WqqN9Ll15Q&s' } alt="profile" />
                                 </Avatar>
                                 <div>
-                                    <h1 className="font-medium text-xl text-white">{ user?.fullname }</h1>
-                                    <p className="text-gray-400">{ user?.profile?.bio }</p>
+                                    <h1 className="font-medium text-xl text-foreground">{ user?.fullname }</h1>
+                                    <p className="text-slate-600">{ user?.profile?.bio }</p>
                                 </div>
                             </div>
                             <Button
@@ -62,7 +62,7 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className="my-5">
-                            <h1 className="text-white mb-2">Skills</h1>
+                            <h1 className="text-foreground mb-2">Skills</h1>
                             <div className="flex items-center gap-2 flex-wrap">
                                 { user?.profile?.skills.length !== 0 ? (
                                     user?.profile?.skills.map((item, index) => (
@@ -76,7 +76,7 @@ const Profile = () => {
                             </div>
                         </div>
                         <div className="my-5">
-                            <Label className="text-md font-bold text-white">Resume</Label>
+                            <Label className="text-md font-bold text-foreground">Resume</Label>
                             { isResume ? (
                                 <a
                                     target="_blank"
@@ -93,14 +93,14 @@ const Profile = () => {
                     </div>
 
                     {/* Applied Jobs Section */ }
-                    <div className="bg-gray-800 rounded-2xl shadow-md p-6 my-6">
-                        <h1 className="font-bold text-lg text-white mb-4">Applied Jobs</h1>
+                    <div className="bg-white rounded-2xl shadow-md p-6 my-6">
+                        <h1 className="font-bold text-lg text-foreground mb-4">Applied Jobs</h1>
                         <AppliedJobTable />
                     </div>
 
                     {/* Saved Jobs Section */ }
-                    <div className="bg-gray-800 rounded-2xl shadow-md p-6 my-6">
-                        <h1 className="font-bold text-lg text-white mb-4">Saved Jobs</h1>
+                    <div className="bg-white rounded-2xl shadow-md p-6 my-6">
+                        <h1 className="font-bold text-lg text-foreground mb-4">Saved Jobs</h1>
                         <SavedJobsTable />
                     </div>
                 </div>

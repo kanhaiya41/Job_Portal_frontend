@@ -15,40 +15,40 @@ const SavedJobsTable = () => {
             transition={ { duration: 0.5 } }
         >
             <div className="overflow-x-auto">
-                <Table className="table-auto w-full border border-gray-700 rounded-lg bg-gray-800 text-gray-200">
+                <Table className="table-auto w-full border border-slate-200 rounded-lg bg-white text-slate-900">
                     <TableHeader>
-                        <TableRow className="bg-gray-900 text-gray-200">
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Title</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Location</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Salary</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">No. of Positions</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">View</TableCell>
+                        <TableRow className="bg-slate-100 text-foreground">
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Title</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Location</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Salary</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">No. of Positions</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">View</TableCell>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         { savedJobs?.map((job, index) => (
                             <motion.tr
                                 key={ index }
-                                className="hover:bg-gray-700 transition-colors duration-300"
+                                className="hover:bg-slate-50 transition-colors duration-300"
                                 initial={ { opacity: 0, y: 10 } }
                                 animate={ { opacity: 1, y: 0 } }
                                 transition={ { duration: 0.3, delay: index * 0.1 } }
                             >
-                                <TableCell className="border-b border-gray-700 px-4 py-3">
+                                <TableCell className="border-b border-slate-200 px-4 py-3">
                                     { job?.title }
                                 </TableCell>
-                                <TableCell className="border-b border-gray-700 px-4 py-3">
+                                <TableCell className="border-b border-slate-200 px-4 py-3">
                                     { job?.location }
                                 </TableCell>
-                                <TableCell className="border-b border-gray-700 px-4 py-3">
+                                <TableCell className="border-b border-slate-200 px-4 py-3">
                                     { job?.salary }
                                 </TableCell>
-                                <TableCell className="border-b border-gray-700 px-4 py-3">
+                                <TableCell className="border-b border-slate-200 px-4 py-3">
                                     { job?.position }
                                 </TableCell>
-                                <TableCell className="border-b border-gray-700 px-4 py-3">
+                                <TableCell className="border-b border-slate-200 px-4 py-3">
                                     <Link to={ `/description/${job?._id}` }>
-                                        <Eye className="text-gray-400 hover:text-gray-200 transition-colors duration-300" />
+                                        <Eye className="text-slate-500 hover:text-slate-900 transition-colors duration-300" />
                                     </Link>
                                 </TableCell>
                             </motion.tr>

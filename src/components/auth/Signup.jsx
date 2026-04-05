@@ -75,20 +75,20 @@ const Signup = () => {
         <>
             <Navbar />
             <motion.div
-                className="flex justify-center items-center min-h-screen pt-16 bg-gradient-to-r from-[#00040A] to-[#001636]"
+                className="flex justify-center items-center min-h-screen pt-16 bg-gradient-to-r from-slate-100 via-white to-slate-100"
                 initial={ { opacity: 0 } }
                 animate={ { opacity: 1 } }
                 exit={ { opacity: 0 } }
                 transition={ { duration: 0.5 } }
             >
                 <motion.div
-                    className="w-full max-w-md p-8 bg-gray-900 border-gray-800 shadow-lg rounded-lg border border-gray-200 text-white"
+                    className="w-full max-w-md p-8 bg-white border border-slate-200 shadow-lg rounded-lg text-slate-900"
                     initial={ { y: 50 } }
                     animate={ { y: 0 } }
                     transition={ { type: 'spring', stiffness: 100 } }
                 >
                     <motion.h1
-                        className="font-bold text-3xl mb-6 text-center"
+                        className="font-bold text-3xl mb-6 text-center text-slate-900"
                         initial={ { opacity: 0 } }
                         animate={ { opacity: 1 } }
                         transition={ { delay: 0.3 } }
@@ -99,7 +99,7 @@ const Signup = () => {
                     <form onSubmit={ submitHandler }>
                         {/* Full Name */ }
                         <motion.div className="mb-4" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.4 } }>
-                            <Label htmlFor="fullname" className="block text-lg">
+                            <Label htmlFor="fullname" className="block text-lg text-slate-900">
                                 Full Name <span className="text-red-400">*</span>
                             </Label>
                             <Input
@@ -109,13 +109,13 @@ const Signup = () => {
                                 name="fullname"
                                 value={ input.fullname }
                                 onChange={ changeEventHandler }
-                                className="text-white bg-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+                                className="text-slate-900 bg-slate-50 border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
                             />
                         </motion.div>
 
                         {/* Email */ }
                         <motion.div className="mb-4" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.5 } }>
-                            <Label htmlFor="email" className="block text-lg">
+                            <Label htmlFor="email" className="block text-lg text-slate-900">
                                 Email Address <span className="text-red-400">*</span>
                             </Label>
                             <Input
@@ -125,13 +125,13 @@ const Signup = () => {
                                 name="email"
                                 value={ input.email }
                                 onChange={ changeEventHandler }
-                                className="text-white bg-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+                                className="text-slate-900 bg-slate-50 border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
                             />
                         </motion.div>
 
                         {/* Phone Number */ }
                         <motion.div className="mb-4" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.6 } }>
-                            <Label htmlFor="phoneNumber" className="block text-lg">
+                            <Label htmlFor="phoneNumber" className="block text-lg text-slate-900">
                                 Phone Number <span className="text-red-400">*</span>
                             </Label>
                             <Input
@@ -141,13 +141,13 @@ const Signup = () => {
                                 name="phoneNumber"
                                 value={ input.phoneNumber }
                                 onChange={ changeEventHandler }
-                                className="text-white bg-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+                                className="text-slate-900 bg-slate-50 border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
                             />
                         </motion.div>
 
                         {/* Password */ }
                         <motion.div className="mb-4" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.7 } }>
-                            <Label htmlFor="password" className="block text-lg">
+                            <Label htmlFor="password" className="block text-lg text-slate-900">
                                 Password <span className="text-red-400">*</span>
                             </Label>
                             <Input
@@ -157,13 +157,13 @@ const Signup = () => {
                                 name="password"
                                 value={ input.password }
                                 onChange={ changeEventHandler }
-                                className="text-white bg-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+                                className="text-slate-900 bg-slate-50 border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
                             />
                         </motion.div>
 
                         {/* Profile Picture */ }
                         <motion.div className="mb-6" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.8 } }>
-                            <Label htmlFor="profilePicture" className="block text-lg">
+                            <Label htmlFor="profilePicture" className="block text-lg text-slate-900">
                                 Profile Picture
                             </Label>
                             <Input
@@ -171,13 +171,13 @@ const Signup = () => {
                                 type="file"
                                 accept="image/*"
                                 onChange={ profilePictureHandler }
-                                className="text-white bg-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
+                                className="text-slate-900 bg-slate-50 border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md"
                             />
                         </motion.div>
 
                         {/* Role */ }
                         <motion.div className="mb-6" initial={ { x: -50, opacity: 0 } } animate={ { x: 0, opacity: 1 } } transition={ { delay: 0.9 } }>
-                            <Label className="block mb-2 text-lg">
+                            <Label className="block mb-2 text-lg text-slate-900">
                                 I am a: <span className="text-red-400">*</span>
                             </Label>
                             <RadioGroup className="flex gap-4" value={ input.role } onValueChange={ (value) => setInput({ ...input, role: value }) }>
@@ -187,11 +187,11 @@ const Signup = () => {
                                         name="role"
                                         value="student"
                                         id="student"
-                                        className="cursor-pointer"
+                                        className="cursor-pointer accent-blue-500"
                                         checked={ input.role === 'student' }
                                         onChange={ changeEventHandler }
                                     />
-                                    <Label htmlFor="student" className="cursor-pointer">
+                                    <Label htmlFor="student" className="cursor-pointer text-slate-900">
                                         JobSeeker
                                     </Label>
                                 </div>
@@ -205,7 +205,7 @@ const Signup = () => {
                                         checked={ input.role === 'recruiter' }
                                         onChange={ changeEventHandler }
                                     />
-                                    <Label htmlFor="recruiter" className="cursor-pointer">
+                                    <Label htmlFor="recruiter" className="cursor-pointer text-slate-900">
                                         Recruiter
                                     </Label>
                                 </div>
@@ -224,7 +224,7 @@ const Signup = () => {
                             </Button>
                         ) }
 
-                        <p className="mt-4 text-center">
+                        <p className="mt-4 text-center text-slate-600">
                             Already have an account?
                             <Link to="/login" className="text-blue-500 mx-1">
                                 Sign In

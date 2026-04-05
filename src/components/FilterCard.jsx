@@ -1,90 +1,75 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setSearchedQuery } from '@/redux/jobSlice';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 const filterData = [
     {
-        filterType: "Location",
-        array: ["Delhi NCR", "Bangalore", "Hyderabad", "Pune", "Mumbai"],
+        filterType: 'Location',
+        array: ['Delhi NCR', 'Bangalore', 'Hyderabad', 'Pune', 'Mumbai'],
     },
     {
-        filterType: "Industry",
-        array: ["Frontend Developer", "Backend Developer", "FullStack Developer"],
+        filterType: 'Industry',
+        array: ['Frontend Developer', 'Backend Developer', 'FullStack Developer'],
     },
     {
-        filterType: "Salary",
-        array: ["React.js", "Java", "DevOps", "Swift", "Flutter", "AWS"]
+        filterType: 'Salary',
+        array: ['3-5 LPA', '5-8 LPA', '8-12 LPA', '12+ LPA'],
     },
 ];
 
-const FilterCard = () => {
-    const [selectedFilters, setSelectedFilters] = useState({
-        Location: [],
-        Industry: [],
-        Salary: []
-    });
-
-    const dispatch = useDispatch();
-
-    // Handle selection of filters, toggle on and off
-    const handleFilterChange = (filterType, value) => {
-        setSelectedFilters((prevFilters) => {
-            const currentSelections = prevFilters[filterType];
-
-            // If the value is already selected, remove it; otherwise, add it
-            const newSelections = currentSelections.includes(value)
-                ? currentSelections.filter((item) => item !== value)
-                : [...currentSelections, value];
-
-            return {
-                ...prevFilters,
-                [filterType]: newSelections,
-            };
-        });
-    };
-
-    // Create a combined search query from the selected filters
-    useEffect(() => {
-        // Convert arrays to strings for the search query
-        const searchQuery = Object.values(selectedFilters)
-            .flat() // flatten arrays into a single array
-            .join(' ') // join all selections into a string
-            .trim(); // remove trailing spaces
-        dispatch(setSearchedQuery(searchQuery));
-    }, [selectedFilters, dispatch]);
-
+const FilterCard = ({ selectedFilters, onFilterChange, onReset }) => {
     return (
         <motion.div
-            className="w-full bg-transparent p-5 rounded-md shadow-md sm:w-11/12 md:w-3/4 lg:w-1/2 xl:w-1/3" // Ensuring responsiveness with Tailwind
-            initial={ { opacity: 0 } }
-            animate={ { opacity: 1 } }
-            transition={ { duration: 0.5 } }
+            className="w-full rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
         >
-            <h1 className="font-bold text-lg text-blue-700">Filter Jobs</h1>
-            <hr className="mt-3" />
-            { filterData.map((data, index) => (
-                <div key={ index } className="mt-3">
-                    <h1 className="font-bold text-md text-blue-600">{ data.filterType }</h1>
-                    { data.array.map((item, idx) => {
-                        const itemId = `id${index}-${idx}`;
-                        const isChecked = selectedFilters[data.filterType].includes(item);
-
-                        return (
-                            <div key={ itemId } className="flex items-center space-x-2 my-2">
-                                <input
-                                    type="checkbox"
-                                    id={ itemId }
-                                    checked={ isChecked }
-                                    onChange={ () => handleFilterChange(data.filterType, item) }
-                                    className="text-blue-600"
-                                />
-                                <label htmlFor={ itemId } className="text-blue-600">{ item }</label>
-                            </div>
-                        );
-                    }) }
+            <div className="flex items-center justify-between">
+                <div>
+                    <h1 className="text-xl font-semibold text-slate-900">Filter Jobs</h1>
+                    <p className="text-sm text-slate-500 mt-1">Choose filters to narrow results.</p>
                 </div>
-            )) }
+                <button
+                    type="button"
+                    onClick={ onReset }
+                    className="text-sm font-medium text-blue-600 hover:text-blue-800"
+                >
+                    Reset
+                </button>
+            </div>
+
+            <div className="mt-5 space-y-5">
+                {filterData.map((group, index) => (
+                    <div key={ index }>
+                        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-700">
+                            {group.filterType}
+                        </h2>
+                        <div className="space-y-3">
+                            {group.array.map((option, idx) => {
+                                const itemId = `${group.filterType}-${idx}`;
+                                const isChecked = selectedFilters[group.filterType]?.includes(option);
+
+                                return (
+                                    <label
+                                        key={ itemId }
+                                        htmlFor={ itemId }
+                                        className="flex cursor-pointer items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 transition hover:border-slate-300"
+                                    >
+                                        <input
+                                            id={ itemId }
+                                            type="checkbox"
+                                            checked={ isChecked }
+                                            onChange={ () => onFilterChange(group.filterType, option) }
+                                            className="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                                        />
+                                        <span className="text-sm text-slate-700">{option}</span>
+                                    </label>
+                                );
+                            })}
+                        </div>
+                    </div>
+                ))}
+            </div>
         </motion.div>
     );
 };

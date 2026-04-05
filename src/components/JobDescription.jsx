@@ -75,14 +75,14 @@ const JobDescription = () => {
     return (
         <>
             <Navbar />
-            <main className="pt-20 pb-16 bg-gradient-to-br from-[#00040A] to-[#001636] min-h-screen text-white px-4 sm:px-6">
+            <main className="pt-20 pb-16 bg-background min-h-screen text-foreground px-4 sm:px-6">
                 <div className="max-w-4xl mx-auto">
-                    <Card className="bg-gray-900 border-gray-800 p-4 sm:p-8">
+                    <Card className="bg-white border-gray-200 p-4 sm:p-8">
                         {/* Job Header */ }
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6">
                             <div className="mb-4 sm:mb-0">
-                                <h1 className="text-xl sm:text-2xl font-bold text-white">{ singleJob?.title || 'Job Title' }</h1>
-                                <p className="text-sm sm:text-base text-gray-400">{ singleJob?.location || 'Location not specified' }</p>
+                                <h1 className="text-xl sm:text-2xl font-bold text-foreground">{ singleJob?.title || 'Job Title' }</h1>
+                                <p className="text-sm sm:text-base text-slate-600">{ singleJob?.location || 'Location not specified' }</p>
                             </div>
                             <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
                                 { savedJobs?.some((savedJob) => savedJob._id === singleJob?._id) ? (
@@ -110,7 +110,7 @@ const JobDescription = () => {
 
                         {/* Job Details */ }
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 mt-6">
-                            <div className="flex items-center text-xs sm:text-base text-gray-300">
+                            <div className="flex items-center text-xs sm:text-base text-slate-600">
                                 <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                                 { singleJob?.location || 'Location not specified' }
                             </div>
@@ -131,25 +131,25 @@ const JobDescription = () => {
                         </div>
 
                         <div className="mt-6 sm:mt-8">
-                            <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-4">Job Description</h2>
-                            <p className="text-xs sm:text-base text-gray-300">{ singleJob?.description || 'Description not available' }</p>
+                            <h2 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-4">Job Description</h2>
+                            <p className="text-xs sm:text-base text-slate-600">{ singleJob?.description || 'Description not available' }</p>
                         </div>
 
                         <div className="mt-6 sm:mt-8">
-                            <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-4">Requirements</h2>
-                            <p className="text-xs sm:text-base text-gray-300">{ singleJob?.requirements || 'Description not available' }</p>
+                            <h2 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-4">Requirements</h2>
+                            <p className="text-xs sm:text-base text-slate-600">{ singleJob?.requirements || 'Description not available' }</p>
                         </div>
 
                         {/* Experience */ }
                         <div className="mt-6 sm:mt-8">
-                            <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-4">Experience Required</h2>
-                            <p className="text-xs sm:text-base text-gray-300">{ `${singleJob?.experienceLevel} years` || 'Not specified' }</p>
+                            <h2 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-4">Experience Required</h2>
+                            <p className="text-xs sm:text-base text-slate-600">{ `${singleJob?.experienceLevel} years` || 'Not specified' }</p>
                         </div>
 
                         {/* Applications */ }
                         <div className="mt-6 sm:mt-8">
-                            <h2 className="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-4">Applications</h2>
-                            <p className="text-xs sm:text-base text-gray-300">
+                            <h2 className="text-lg sm:text-xl font-semibold text-foreground mb-2 sm:mb-4">Applications</h2>
+                            <p className="text-xs sm:text-base text-slate-600">
                                 { singleJob?.applications?.length || 0 } applicants
                             </p>
                         </div>

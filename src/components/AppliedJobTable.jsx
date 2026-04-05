@@ -8,7 +8,7 @@ const AppliedJobTable = () => {
     const { allAppliedJobs } = useSelector(state => state.job);
 
     const getStatusColor = (status) => {
-        if (!status) return 'text-gray-400'; // Fallback color for undefined status
+        if (!status) return 'text-slate-500'; // Fallback color for undefined status
         switch (status?.toLowerCase()) {
             case 'pending':
                 return 'text-orange-400';
@@ -17,7 +17,7 @@ const AppliedJobTable = () => {
             case 'rejected':
                 return 'text-red-400';
             default:
-                return 'text-gray-400';
+                return 'text-slate-500';
         }
     };
 
@@ -28,13 +28,13 @@ const AppliedJobTable = () => {
             transition={ { duration: 0.5 } }
         >
             <div className="overflow-x-auto">
-                <Table className="table-auto w-full border border-gray-700 rounded-lg bg-gray-800 text-gray-200">
+                <Table className="table-auto w-full border border-slate-200 rounded-lg bg-white text-slate-900">
                     <TableHeader>
-                        <TableRow className="bg-gray-900 text-gray-200">
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Job Title</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Company</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Applied Date</TableCell>
-                            <TableCell className="border-b border-gray-700 px-4 py-3">Status</TableCell>
+                        <TableRow className="bg-slate-100 text-foreground">
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Job Title</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Company</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Applied Date</TableCell>
+                            <TableCell className="border-b border-slate-200 px-4 py-3">Status</TableCell>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -42,22 +42,22 @@ const AppliedJobTable = () => {
                             allAppliedJobs?.map((appliedJob, index) => (
                                 <motion.tr
                                     key={ appliedJob._id }
-                                    className="hover:bg-gray-700 transition-colors duration-300 text-gray-200"
+                                    className="hover:bg-slate-50 transition-colors duration-300 text-slate-900"
                                     initial={ { opacity: 0, y: 10 } }
                                     animate={ { opacity: 1, y: 0 } }
                                     transition={ { duration: 0.3, delay: index * 0.1 } }
                                 >
-                                    <TableCell className="border-b border-gray-700 px-4 py-3">
+                                    <TableCell className="border-b border-slate-200 px-4 py-3">
                                         { appliedJob?.job.title }
                                     </TableCell>
-                                    <TableCell className="border-b border-gray-700 px-4 py-3">
+                                    <TableCell className="border-b border-slate-200 px-4 py-3">
                                         { appliedJob?.job.company.name }
                                     </TableCell>
-                                    <TableCell className="border-b border-gray-700 px-4 py-3">
+                                    <TableCell className="border-b border-slate-200 px-4 py-3">
                                         { new Date(appliedJob.createdAt).toLocaleDateString() }
                                     </TableCell>
                                     <TableCell
-                                        className={ `border-b border-gray-700 px-4 py-3 ${getStatusColor(
+                                        className={ `border-b border-slate-200 px-4 py-3 ${getStatusColor(
                                             appliedJob?.status
                                         )}` }
                                     >
@@ -67,7 +67,7 @@ const AppliedJobTable = () => {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="4" className="text-center py-4 text-gray-500">
+                                <td colSpan="4" className="text-center py-4 text-slate-500">
                                     No applied jobs found
                                 </td>
                             </tr>

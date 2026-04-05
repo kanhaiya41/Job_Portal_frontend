@@ -20,14 +20,14 @@ const Browse = () => {
     return (
         <>
 
-            <div className="bg-gray-900 min-h-screen text-white bg-gradient-to-br from-[#00040A] to-[#001636]">
+            <div className="bg-background min-h-screen text-foreground bg-gradient-to-br from-slate-100 via-white to-slate-50">
                 <Navbar />
-                <div className='max-w-7xl mx-auto pt-16'>
+                <div className='max-w-7xl mx-auto pt-20'>
                     <h1 className='font-bold text-xl my-10'>
                         Search Results ({ allJobs.length })
                     </h1>
                     { searchedQuery === '' && allJobs.length === 0 ? (
-                        <p className="text-lg text-gray-400">
+                        <p className="text-lg text-slate-600">
                             No jobs found. Please adjust your search criteria.
                         </p>
                     ) : (
