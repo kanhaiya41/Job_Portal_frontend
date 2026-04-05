@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <motion.div
-      className="bg-white"
+      className="bg-background min-h-screen flex flex-col"
       initial={ { opacity: 0 } }
       animate={ { opacity: 1 } }
       transition={ { duration: 0.5 } }
@@ -32,12 +32,12 @@ const Home = () => {
       <Navbar />
 
       {/* Main content with padding to avoid overlap */ }
-      <div className="pt-16  bg-gradient-to-br from-[#00040A] to-[#001636]">
+      <div className="pt-16 flex-grow">
         <HeroSection />
         <CategoryCarousel />
         <LatestJobs />
-        <Footer />
       </div>
+      <Footer />
       <ChatBoat />
     </motion.div>
   );
