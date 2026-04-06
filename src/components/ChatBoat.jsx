@@ -7,19 +7,12 @@ import { toast } from "sonner";
 import { Send, X } from "lucide-react";
 import axios from "axios";
 import './ChatBot.css';
+import { BASE_URL } from "@/utils/constant";
 
-// Mistral AI API integration
-const API_URL = "https://api.mistral.ai/v1/chat/completions";
-const HIRE_HUB_SYSTEM_PROMPT = `You are Hire Hub AI, created by Hire Hub Technologies in India. 
-You help job seekers and recruiters connect. IMPORTANT: Keep all responses extremely brief (1-2 short sentences max).
-Never use bullet points or lists. Never write more than 150 characters in a response.
-Only respond to questions related to jobs, careers, hiring, resumes, or interviews.
-If a question is not clearly about a job or career, reply with: "Sorry, I can only help with job and career-related questions." Do not attempt to answer anything else.`;
+// Mistral AI API integration via backend
+const API_URL = `${BASE_URL}/chatboat/ask`;
 const ChatBot = () => {
     const [chatBotOpen, setChatBotOpen] = useState(false);
-    const [conversationHistory, setConversationHistory] = useState([
-        { role: "system", content: HIRE_HUB_SYSTEM_PROMPT }
-    ]);
     const [messages, setMessages] = useState([
         { sender: "bot", text: "Hi there! How can I help you today?" },
         { sender: "bot", text: "I can answer questions about jobs and career growth." },
@@ -36,40 +29,23 @@ const ChatBot = () => {
     ]);
 
     const messagesEndRef = useRef(null);
-    const API_KEY = import.meta.env.VITE_MISTRAL_API_KEY;
 
     const generateMistralResponse = async (userInput) => {
         try {
-            // Add user message to conversation history
-            const updatedHistory = [
-                ...conversationHistory,
-                { role: "user", content: userInput }
-            ];
-
             const response = await axios.post(
                 API_URL,
                 {
-                    model: "mistral-tiny",
-                    messages: updatedHistory,
-                    temperature: 0.7,
-                    max_tokens: 100, // Reduced max tokens for shorter responses
+                    message: userInput
                 },
                 {
                     headers: {
                         "Content-Type": "application/json",
-                        Authorization: `Bearer ${API_KEY}`,
                     },
                     timeout: 15000,
                 }
             );
 
-            const aiResponse = response.data.choices[0].message.content;
-
-            // Update conversation history with AI response
-            setConversationHistory([
-                ...updatedHistory,
-                { role: "assistant", content: aiResponse }
-            ]);
+            const aiResponse = response.data.message;
 
             return aiResponse;
         } catch (error) {
