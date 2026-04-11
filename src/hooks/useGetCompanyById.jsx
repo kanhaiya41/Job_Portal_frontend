@@ -16,7 +16,8 @@ const useGetCompanyById = (companyId) => {
                     dispatch(setSingleCompany(res.data.company));
                 }
             } catch (error) {
-
+                console.error("Error fetching company details:", error);
+                toast.error(error?.response?.data?.message || "Failed to fetch company details");
             }
         }
         fetchSingleCompany();

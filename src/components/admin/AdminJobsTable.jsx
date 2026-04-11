@@ -107,7 +107,7 @@ const AdminJobsTable = () => {
                                             <Delete className="w-4" />
                                             <span>Delete</span>
                                         </div>
-                                    </PopoverContent>s
+                                    </PopoverContent>
                                 </Popover>
                             </TableCell>
                         </motion.tr>
